@@ -37,3 +37,48 @@ document.getElementById('add-car-btn').addEventListener('click', function() {
         document.getElementById('car-desc').value = '';
     }
 });
+
+/* Drag Race Game Logic */
+let startTime;
+let timerTimeout;
+const redLight = document.getElementById('red-light');
+const greenLight = document.getElementById('green-light');
+const startBtn = document.getElementById('start-game-btn');
+const gasBtn = document.getElementById('gas-btn');
+const gameResult = document.getElementById('game-result');
+const car = document.getElementById('player-car');
+
+startBtn.addEventListener('click', function() {
+    car.style.left = '10px';
+    redLight.classList.add('active');
+    greenLight.classList.remove('active');
+    gameResult.textContent = 'Get ready...';
+    startBtn.disabled = true;
+    gasBtn.disabled = false;
+
+    const delay = Math.floor(Math.random() * 3000) + 2000;
+
+    timerTimeout = setTimeout(() => {
+        redLight.classList.remove('active');
+        greenLight.classList.add('active');
+        startTime = Date.now();
+        gameResult.textContent = 'GO GO GO!';
+    }, delay);
+});
+
+gasBtn.addEventListener('click', function() {
+    if (!startTime) {
+        clearTimeout(timerTimeout);
+        redLight.classList.remove('active');
+        gameResult.textContent = 'FALSE START! You launched too early!';
+        startBtn.disabled = false;
+        gasBtn.disabled = true;
+    } else {
+        const reactionTime = (Date.now() - startTime) / 1000;
+        car.style.left = '85%';
+        gameResult.textContent = `Finish time: ${reactionTime.toFixed(3)}s! 🏆`;
+        startTime = null;
+        startBtn.disabled = false;
+        gasBtn.disabled = true;
+    }
+});
