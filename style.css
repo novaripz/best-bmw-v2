@@ -15,7 +15,7 @@ h1 {
     text-align: center;
 }
 
-.controls, .add-car-section {
+.controls, .add-car-section, .game-section {
     background-color: #1e1e1e;
     padding: 15px;
     border-radius: 8px;
@@ -24,6 +24,7 @@ h1 {
 
 body.light-mode .controls,
 body.light-mode .add-car-section,
+body.light-mode .game-section,
 body.light-mode li {
     background-color: #ffffff;
     border: 1px solid #ccc;
@@ -63,4 +64,46 @@ button:hover {
     background-color: #e63946;
     display: block;
     margin-top: 10px;
+}
+
+/* Drag Race Game Styles */
+#light-box {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.light {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #444;
+}
+
+.light.red.active {
+    background-color: #ff4d4d;
+    box-shadow: 0 0 10px #ff4d4d;
+}
+
+.light.green.active {
+    background-color: #2ecc71;
+    box-shadow: 0 0 10px #2ecc71;
+}
+
+.track {
+    background-color: #000;
+    height: 50px;
+    border-radius: 8px;
+    position: relative;
+    margin: 15px 0;
+    overflow: hidden;
+    border: 2px dashed #555;
+}
+
+#player-car {
+    font-size: 30px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    transition: left 0.5s ease-out;
 }
