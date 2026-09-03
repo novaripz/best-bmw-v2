@@ -1,0 +1,66 @@
+body {
+    background-color: #111111;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    transition: 0.3s;
+}
+
+body.light-mode {
+    background-color: #f4f4f4;
+    color: #111111;
+}
+
+h1 {
+    text-align: center;
+}
+
+.controls, .add-car-section {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+body.light-mode .controls,
+body.light-mode .add-car-section,
+body.light-mode li {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+}
+
+li {
+    background-color: #1e1e1e;
+    margin: 25px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+img {
+    width: 600px;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+button, input {
+    padding: 8px 12px;
+    margin: 4px;
+    border-radius: 4px;
+    border: none;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.like-btn {
+    background-color: #e63946;
+    display: block;
+    margin-top: 10px;
+}
